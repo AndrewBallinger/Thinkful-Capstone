@@ -11,7 +11,7 @@ var usemin = require('gulp-usemin');
 var clean = require('gulp-clean');
 
 var paths = {
-  scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js' ],
+  scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js', '!app/**/*.spec.js' ],
   html: [
     './app/**/*.html',
     '!./app/index.html',

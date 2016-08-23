@@ -1,6 +1,6 @@
 {
-  "name": "countries",
-  "homepage": "https://github.com/AndrewBallinger/Thinkful-Countries",
+  "name": "goboard",
+  "homepage": "https://github.com/AndrewBallinger/goboard",
   "authors": [
     "Andrew Ballinger <aballinger@payjunction.com>"
   ],
@@ -17,7 +17,10 @@
   ],
   "dependencies": {
     "angular-animate": "^1.5.8",
-    "angularfire": "^2.0.2"
+    "angularfire": "^2.0.2",
+    "angular": "^1.5.8",
+    "angular-material": "^1.1.0",
+    "angular-route": "^1.5.8"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.8"

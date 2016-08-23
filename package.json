@@ -1,10 +1,10 @@
 {
-  "name": "calendar-starter",
+  "name": "goboard",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "karma start app/utilities/calendar-range/karma.conf.js"
+    "test": "karma start"
   },
   "author": "",
   "license": "ISC",
