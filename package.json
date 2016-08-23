@@ -1,0 +1,31 @@
+{
+  "name": "calendar-starter",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start app/utilities/calendar-range/karma.conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-connect": "^5.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-usemin": "^0.3.24",
+    "gulp-util": "^3.0.7",
+    "html2js": "^0.2.0",
+    "jquery": "^3.1.0",
+    "karma": "^0.12.17",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "ng-html2js": "^3.0.0"
+  }
+}
