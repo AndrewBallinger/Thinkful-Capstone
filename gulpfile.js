@@ -5,6 +5,7 @@ var uglify = require('gulp-uglify');
 var gutil = require('gulp-util');
 var eslint = require('gulp-eslint');
 var babel = require('gulp-babel');
+var karma = require('karma').Server;
 var ngAnnotate = require('gulp-ng-annotate');
 var minifyCss = require('gulp-clean-css');
 var usemin = require('gulp-usemin');
@@ -21,7 +22,6 @@ var paths = {
   build: './build'
 }
 
-/* 1 */
 gulp.task('clean', function(){
   gulp.src( paths.build, { read: false } )
     .pipe(clean());
@@ -32,13 +32,18 @@ gulp.task('copy', [ 'clean' ], function() {
       .pipe(gulp.dest('build/'));
 });
 
+gulp.task('test_continuous', (done) => {
+  new karma({
+    configFile: __dirname + '/karma.conf.js',
+    captureConsole: false
+  }, done ).start(); })
+
 gulp.task('lint', () => {
-  return gulp.src(['**/*.js','!node_modules/**'])
+  return gulp.src(paths.scripts)
              .pipe(eslint())
              .pipe(eslint.format())
              .pipe(eslint.failAfterError());
 });
-
 
 gulp.task('usemin', [ 'copy' ], function(){
   gulp.src( paths.index )
@@ -61,12 +66,9 @@ gulp.task('html', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['./app/**/*.html', './app/**/*.css', './app/**/*.js'], ['html']);
+  gulp.watch(['./app/**/*.html', './app/**/*.css', './app/**/*.js'], ['html', 'lint']);
 });
 
-gulp.task('default', ['connect', 'watch']);
-
-// connect
 gulp.task('connect', function() {
   connect.server({
     root: 'app/',
@@ -74,4 +76,4 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['connect', 'watch', 'test_continuous']);

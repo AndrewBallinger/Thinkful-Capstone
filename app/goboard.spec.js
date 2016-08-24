@@ -1,13 +1,14 @@
 /* global describe beforeEach module it expect inject */
 describe('app', () => {
-  var scope;
+  var scope, compiled, element;
   
   beforeEach(module('goboardApp'));
   beforeEach(module('index.html'));
   
-  beforeEach(inject(($rootScope, $compile) => {
+  beforeEach(inject(($rootScope, $compile, $templateCache) => {
     scope = $rootScope.$new();
-    
+    compiled = $compile($templateCache.get('index.html'));
+    element = compiled(scope);
   }));
   
   it('does not fall over when simply requiring the base namespace', () => {
@@ -15,6 +16,6 @@ describe('app', () => {
   });
 
   it('does not fall over when simply requiring the index.html', () => {
-    expect(scope).toBeTruthy();
+    expect(element).toBeTruthy();
   });
 });
