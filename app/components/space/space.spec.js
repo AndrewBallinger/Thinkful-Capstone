@@ -14,7 +14,9 @@ describe('space', () => {
   
   it('does not fall over when simply rendering', () => {
     expect(element).toBeTruthy();
-    expect(element.html()).toContain("A1");
+    expect(element.html()).toContain("piece");
+    expect(element.html()).toContain("handleClick");
+    expect(element.html()).toContain("space");
   });
 
 });

@@ -16,7 +16,6 @@ angular.module('goboardComponents')
         
         console.log("Size " + board.size + " board initialized") };
 
-      
       return board;
     },
     controllerAs: "board",
