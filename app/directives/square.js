@@ -16,5 +16,6 @@ angular.module('goboardDirectives')
         }
       }
 
+      resize();
       angular.element($window).on('resize', resize);
       scope.$on('$destroy', () => angular.element($window).off('resize', resize)); }}});
