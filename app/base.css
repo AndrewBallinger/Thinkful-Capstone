@@ -37,22 +37,23 @@ board {
     width: 100%;
     display: block;
     border: 1px solid black;
-    background-color: yellow;
+    background-color: #966F33;
 }
 
 space {
     position: relative;
+
     float: left;
     overflow: hidden;
     align-content: center;
     text-align: center;
 }
 
-.blacks-turn space:hover {
+.blacks-turn .piece:hover {
     background-color: black;
 }
 
-.whites-turn space:hover {
+.whites-turn .piece:hover {
     background-color: white;
 }
 
@@ -66,10 +67,22 @@ space {
     border: solid black 1px;
 }
 
-.space.black {
+.piece {
+    width: 90%;
+    height: 90%;
+    top: 49%;
+    transform: translateY(-50%);
+    position: relative;
+    display:inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.piece.black {
     background-color: black;
 }
 
-.space.white {
+.piece.white {
     background-color: white;
 }
+

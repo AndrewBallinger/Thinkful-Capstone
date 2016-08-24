@@ -14,6 +14,7 @@ angular.module('goboardFactories')
     }
 
     state.placePiece = (space) => {
+      if (state.lookupPiece(space) !== state.PIECE.EMPTY) return;
       moves.push({time: new Date(), row: space.row, column: space.column, piece: to_move });
       to_move = (to_move === state.PIECE.BLACK) ? state.PIECE.WHITE : state.PIECE.BLACK;
     }
