@@ -1,5 +1,5 @@
 /* global describe beforeEach module it expect inject */
-describe('app', () => {
+describe('goboardApp', () => {
   var scope, compiled, element;
   
   beforeEach(module('goboardApp'));

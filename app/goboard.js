@@ -1,2 +1,2 @@
 /* global angular */
-angular.module('goboardApp', ['appComponents', 'ngRoute', 'ngAnimate', 'ngMaterial']);
+angular.module('goboardApp', ['goboardComponents', 'goboardDirectives', 'ngRoute', 'ngAnimate', 'ngMaterial']);

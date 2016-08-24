@@ -1,2 +1,2 @@
 /*global angular*/
-angular.module('appComponents', ['ngRoute']);
+angular.module('goboardComponents', []); //Just provides a namespace for components.

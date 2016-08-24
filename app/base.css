@@ -1,0 +1,39 @@
+html {
+    width: 100%;
+    height: 100%;
+} 
+
+body {
+    position: absolute;
+    padding: 50px;
+    padding-top: 0px;
+    margin: auto auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+header {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 15%;
+    align-content: center;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    position: relative;
+    height: 85%;
+}
+
+board {
+    display: block;
+    border: 1px solid black;
+    background-color: yellow;
+}
