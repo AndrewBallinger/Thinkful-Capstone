@@ -4,7 +4,9 @@ angular.module('goboardDirectives')
     link: (scope, element) => {
       var resize = () => {
 
-        element.css({ 'width': "100%", "height": "100%" });
+        var target_width = element.attr('width') || "100%";
+        var target_height = element.attr('height') || "100%";
+        element.css({ 'width': target_width, "height": target_height });
         var width = element.prop('offsetWidth');
         var height = element.prop('offsetHeight');
         if (width > height) {

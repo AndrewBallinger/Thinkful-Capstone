@@ -33,7 +33,28 @@ header h1 {
 }
 
 board {
+    position: relative;
+    width: 100%;
     display: block;
     border: 1px solid black;
     background-color: yellow;
+}
+
+space {
+    float: left;
+    overflow: hidden;
+    align-content: center;
+    text-align: center;
+}
+
+.blacks-turn space:hover {
+    background-color: black;
+
+}
+
+.space {
+    margin: auto auto;
+    position: relative;
+    display:inline-block;
+    overflow: hidden;
 }

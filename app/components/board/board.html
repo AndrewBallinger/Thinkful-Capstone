@@ -1,1 +1,4 @@
-<div fit-window> This is so totally a game board </div>
+<space style='width: {{100/board.size | number : 3 }}%; height:  {{100/board.size | number : 3 }}%'
+       ng-repeat="space in board.spaces"
+       row="{{space.row}}"
+       column ="{{space.column}}"></space>
