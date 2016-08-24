@@ -51,10 +51,12 @@ space {
 
 .blacks-turn .piece:hover {
     background-color: black;
+    opacity: 0.2;
 }
 
 .whites-turn .piece:hover {
     background-color: white;
+    opacity: 0.2;
 }
 
 .space {
