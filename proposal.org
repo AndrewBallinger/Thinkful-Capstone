@@ -124,3 +124,16 @@ If I were building this service on my choice-of-stack I would definitely choose 
 *** Back-end integrations
     Integrations with existing services (which for the most part have an old-school client and server model).
 
+
+* Progress
+** End of day 1
+Wed Aug 24 16:36:55 PDT 2016
+commit 5474420c3f6bec595629b9823f45d434efd09901
+
+It seems to have come together pretty well so far... despite the hideous amount of boilerplate up front for what is essentially a 50 line elm program (Not to mention that it's slow!!).
+
+It is playable, could use a little bit of styling.
+I haven't done any of the firebase stuff yet, probably jump on that first thing tomorrow. (Also subbing games by route.
+
+It doesn't really need a turn indicator... but click and drag to place pieces out of cups might actually feel really nice.
+Off to expand the partition on this vm... Each application comes with a pretty sizable dev environment in the form of innumerable packages.
