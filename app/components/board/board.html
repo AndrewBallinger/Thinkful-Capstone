@@ -1,4 +1,5 @@
 <space style='width: {{100/board.size | number : 3 }}%; height:  {{100/board.size | number : 3 }}%'
        ng-repeat="space in board.spaces"
        row="{{space.row}}"
-       column ="{{space.column}}"></space>
+       column ="{{space.column}}"
+       ng-class = {{board.getTopology(space)}}></space>

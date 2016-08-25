@@ -37,7 +37,6 @@ board {
     width: 100%;
     display: block;
     border: 1px solid black;
-    background-color: #966F33;
 }
 
 space {
@@ -66,7 +65,51 @@ space {
     position: relative;
     display:inline-block;
     overflow: hidden;
-    border: solid black 1px;
+    background-image: url("./assets/grid.svg");
+    background-size: contain;
+}
+
+.left .space {
+    background-image: url("./assets/edge.svg");
+    transform: rotate(-90deg);
+}
+
+.right .space {
+    background-image: url("./assets/edge.svg");
+    transform: rotate(90deg);
+}
+
+.top .space {
+    background-image: url("./assets/edge.svg");
+}
+
+.bottom .space {
+    background-image: url("./assets/edge.svg");
+    transform: rotate(180deg);
+}
+
+.top.right .space {
+    background-image: url("./assets/corner.svg");
+    transform: rotate(-90deg);
+}
+
+.bottom.right .space {
+    background-image: url("./assets/corner.svg");
+    transform: rotate(0deg);
+}
+
+.bottom.left .space {
+    background-image: url("./assets/corner.svg");
+    transform: rotate(90deg);
+}
+
+.top.left .space {
+    background-image: url("./assets/corner.svg");
+    transform: rotate(180deg);
+}
+
+.star .space {
+    background-image: url("./assets/star.svg");
 }
 
 .piece {
