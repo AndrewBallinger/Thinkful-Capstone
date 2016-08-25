@@ -2,20 +2,21 @@
 angular.module('goboardComponents')
   .component('board', { 
     templateUrl: 'components/board/board.html',
-    controller: function BoardController() {
+    controller: function BoardController(goboardState) {
       var board = this;
-      var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
       board.TOPO = { BOTTOM: 'bottom', RIGHT: 'right', LEFT: 'left', TOP: 'top', STAR: 'star'  };
       
       board.$onInit = () => {
         if (board.size === undefined) board.size = 19;
 
         board.spaces = _.flatten(
-          _.map(letters.slice(0, board.size),
-            (letter) => _.map( _.range(1, board.size + 1),
-              (number) =>  { return {
-                row: letter,
-                column: number }})));
+          _.map( _.range(1, board.size + 1),
+            (r) => _.map( _.range(1, board.size + 1),
+              (c) =>  { return {
+                row: r,
+                column: c }})));
+
+        goboardState.clearBoard(board.spaces);
 
         console.log("Size " + board.size + " board initialized") };
 
@@ -23,14 +24,14 @@ angular.module('goboardComponents')
         var topo = [];
         if (space.column === 1) topo.push(board.TOPO.LEFT);
         if (space.column === board.size) topo.push(board.TOPO.RIGHT);
-        if (space.row === "A") topo.push(board.TOPO.TOP); 
-        if (space.row === letters.slice(0, board.size)[board.size-1]) topo.push(board.TOPO.BOTTOM);
+        if (space.row === 1) topo.push(board.TOPO.TOP); 
+        if (space.row === board.size) topo.push(board.TOPO.BOTTOM);
         if (board.isStarPoint(space)) topo.push(board.TOPO.STAR);
         return topo;
       }
 
       board.isStarPoint = (space) => {
-        var row_index = letters.findIndex((l) => l === space.row) + 1; //Using 1 indexed not 0 indexed to keep the notation natural
+        var row_index = space.row; //Using 1 indexed not 0 indexed to keep the notation natural
         var col_index = space.column;
 
         var edge_stars = [];
@@ -62,6 +63,7 @@ angular.module('goboardComponents')
 
         return false;
       }
+
       
       return board;
     },

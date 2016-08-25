@@ -64,48 +64,40 @@ space {
     padding: auto;
     position: relative;
     display:inline-block;
-    overflow: hidden;
     background-image: url("./assets/grid.svg");
     background-size: contain;
 }
 
 .left .space {
-    background-image: url("./assets/edge.svg");
-    transform: rotate(-90deg);
+    background-image: url("./assets/left-edge.svg");
 }
 
 .right .space {
-    background-image: url("./assets/edge.svg");
-    transform: rotate(90deg);
+    background-image: url("./assets/right-edge.svg");
 }
 
 .top .space {
-    background-image: url("./assets/edge.svg");
+    background-image: url("./assets/top-edge.svg");
 }
 
 .bottom .space {
-    background-image: url("./assets/edge.svg");
-    transform: rotate(180deg);
+    background-image: url("./assets/bottom-edge.svg");
 }
 
 .top.right .space {
-    background-image: url("./assets/corner.svg");
-    transform: rotate(-90deg);
+    background-image: url("./assets/top-right-corner.svg");
 }
 
 .bottom.right .space {
-    background-image: url("./assets/corner.svg");
-    transform: rotate(0deg);
+    background-image: url("./assets/bottom-right-corner.svg");
 }
 
 .bottom.left .space {
-    background-image: url("./assets/corner.svg");
-    transform: rotate(90deg);
+    background-image: url("./assets/bottom-left-corner.svg");
 }
 
 .top.left .space {
-    background-image: url("./assets/corner.svg");
-    transform: rotate(180deg);
+    background-image: url("./assets/top-left-corner.svg");
 }
 
 .star .space {
