@@ -34,18 +34,24 @@ angular.module('goboardFactories')
       if (bottom.piece) neighbors.push(bottom);
       return neighbors;
     }
-    
-    lib.applyLifeAndDeath = (position, move) => {
+
+    lib.findKills = (position, move) => {
       var neighbors = lib.getNeighbors(position, move);
-      
       var deaths = _.reduce( neighbors.map((n) => lib.findDeaths({}, position, n)),
                             (a,b) => angular.merge(a, b),
                              {});
+      deaths = _.pick(deaths, (d) => d.piece !== move.piece);
+      return deaths;
+    }
+    
+    lib.applyLifeAndDeath = (position, move) => {
+      var deaths = lib.findKills(position, move);
 
       if (_.keys(deaths).length == 0) return position;
       
       console.log("Found deaths: " + _.keys(deaths));
-
+      
+      
       var removed_white_pieces = _.keys(_.filter(deaths, (d) => d.piece === state.PIECE.WHITE)).length;
       var removed_black_pieces = _.keys(_.filter(deaths, (d) => d.piece === state.PIECE.BLACK)).length;
       var old_score = position.get(state.SCORE, { white: 0, black:0 });
@@ -87,15 +93,36 @@ angular.module('goboardFactories')
       new_position = lib.applyLifeAndDeath(new_position, move);
       return new_position;
     }
+
+    lib.moveIsValid = (position, move) => {
+      if (lib.lookupPiece(position, move) !== state.PIECE.EMPTY) return false; //No playing over an opponents pieces
+      
+      var potential_position = position.set(lib.moveKey(move), move.piece);
+
+      var kills = _.keys(lib.findKills(potential_position, move));
+      var potential_suicides = _.keys(lib.findDeaths({}, potential_position, move)).length;
+
+      if (potential_suicides > 0) {
+        if (kills.length == 0) {
+          return false; //No suicides without capture
+        }
+      }
+
+      return true;
+    }
+
+    lib.lookupPiece = (position, space) => {
+      return position.get(lib.moveKey(space));
+    }
     
     state.lookupPiece = (space) => {
-      return last_position.get(lib.moveKey(space));
+      return lib.lookupPiece(last_position, space);
     }
 
     state.placePiece = (space) => {
-      if (state.lookupPiece(space) !== state.PIECE.EMPTY) return;
-
       var move = {time: new Date(), row: parseInt(space.row), column: parseInt(space.column), piece: to_move };
+      if ( !lib.moveIsValid(last_position, move) ) return;
+
       to_move = (to_move === state.PIECE.BLACK) ? state.PIECE.WHITE : state.PIECE.BLACK;
 
       last_position = lib.applyMove(last_position, move);
