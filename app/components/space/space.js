@@ -4,13 +4,13 @@ angular.module('goboardComponents')
     templateUrl: 'components/space/space.html',
     require: '^^board',
     scope: true,
-    controller: function SpaceController($scope, goboardState) {
+    controller: function SpaceController($scope, goboardState, CONSTANTS) {
       var space = this;
       space.piece = () => {
         switch (goboardState.lookupPiece(this)) {
-          case goboardState.PIECE.BLACK:
+          case CONSTANTS.PIECE.BLACK:
             return "black";
-          case goboardState.PIECE.WHITE:
+          case CONSTANTS.PIECE.WHITE:
             return "white";
           default:
             return "";
