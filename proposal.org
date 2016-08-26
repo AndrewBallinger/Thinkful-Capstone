@@ -137,3 +137,10 @@ I haven't done any of the firebase stuff yet, probably jump on that first thing 
 
 It doesn't really need a turn indicator... but click and drag to place pieces out of cups might actually feel really nice.
 Off to expand the partition on this vm... Each application comes with a pretty sizable dev environment in the form of innumerable packages.
+
+* Suggestions/ Feedback
+** Last played indicator
+Anthony recommended this smooth last-played indicator.
+There definitely needs to be one... Does this fit the design aethetic I'm going for?
+
+http://codepen.io/olam/pen/zcqea
