@@ -9,10 +9,8 @@
     <header>
       <h1> Play you some go </h1></header>
     <div class="content" ng-controller="gameController as game">
-        <board size="9"
-               square
-               ng-class="game.turn()">Loading...</board>
-      </div>
+      <board size="9" square
+             ng-class="game.turn()">Loading...</board></div>
     
     <!-- build:js ./combined.js -->
     <script src="./bower_components/angular/angular.js"></script>
@@ -46,7 +44,7 @@
       firebase.initializeApp(config);
     </script>
 
-    <script src="./goboard.js"</script>
+    <script src="./goboard.js"></script>
     
     <!-- endbuild -->
     </body></html>
