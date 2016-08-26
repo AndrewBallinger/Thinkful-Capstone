@@ -7,7 +7,13 @@ angular.module('goboardFactories')
       return '' + ( String.fromCharCode(64 + parseInt(move.row)) + move.column ) ;
     }
 
-    goboardLogic.maybeConvertAddress = (position, address) => { address.piece = position.get(goboardLogic.moveKey(address), false); return address } ;
+    goboardLogic.maybeConvertAddress = (position, address) => {
+      if (position == undefined) {
+        debugger
+      };
+      address.piece = position.get(goboardLogic.moveKey(address), false);
+      return address
+    } ;
 
     goboardLogic.getNeighbors = (position, move) => {
       var neighbors = [];
@@ -75,13 +81,15 @@ angular.module('goboardFactories')
     goboardLogic.applyMove = (position, move) => {
       var key = goboardLogic.moveKey(move);
       console.log("Applying move for " + key );
-
+      
       if (position.get(key) === CONSTANTS.PIECE.EMPTY) {
-        var new_position = position.set(key, move.piece);
-      }
+        position = position.set(key, move.piece);
+       } else {
+          return position;
+        }
 
-      new_position = goboardLogic.applyLifeAndDeath(new_position, move);
-      return new_position;
+      position = goboardLogic.applyLifeAndDeath(position, move);
+      return position;
     }
 
    goboardLogic.moveIsValid = (position, move) => {

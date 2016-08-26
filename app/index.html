@@ -20,6 +20,8 @@
     <script src="./bower_components/angular-aria/angular-aria.js"></script>
     <script src="./bower_components/angular-route/angular-route.js"></script>
     <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/firebase/firebase.js"></script>
+    <script src="./bower_components/angularfire/dist/angularfire.js"></script>
     <script src="./bower_components/immutable/dist/immutable.js"></script>
     <script src="./bower_components/underscore/underscore.js"></script>
     <script src="./factories/goboard-factories.js"></script>
@@ -33,7 +35,19 @@
     <script src="./components/space/space.js"></script>
     <script src="./directives/goboard-directives.js"></script>
     <script src="./directives/square.js"></script>
+
+    <script>
+      var config = {
+        apiKey: "AIzaSyB4yI1sVxIXiLOf1IE_MC4qm00cogjQQ08",
+        authDomain: "goboard-b7efb.firebaseapp.com",
+        databaseURL: "https://goboard-b7efb.firebaseio.com",
+        storageBucket: "goboard-b7efb.appspot.com"
+      };
+      firebase.initializeApp(config);
+    </script>
+
     <script src="./goboard.js"</script>
+    
     <!-- endbuild -->
     </body></html>
 

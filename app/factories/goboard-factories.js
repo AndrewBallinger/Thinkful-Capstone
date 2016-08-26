@@ -1,2 +1,2 @@
 /*global angular*/
-angular.module('goboardFactories', []); //Just provides a namespace for components.
+angular.module('goboardFactories', ["firebase"]); //Just provides a namespace for components.
