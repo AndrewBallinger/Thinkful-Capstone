@@ -1,6 +1,6 @@
 /* global angular firebase */
 (function () {
-  angular.module('goboardFactories')
+  angular.module('foreignModules')
          .factory('firebaseSync', function ($firebaseAuth, $firebaseArray, $q) {
            var sync = {};
            var queuedRegistrants = [];

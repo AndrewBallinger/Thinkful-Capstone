@@ -1,3 +1,4 @@
+
 // Karma configuration
 // Generated on Thu Jul 10 2014 16:08:54 GMT-0400 (EDT)
 
@@ -26,6 +27,7 @@ module.exports = function(config) {
       'bower_components/underscore/underscore.js',
       '*.js',
       '*.html',
+      '**/test_fixtures/*.js',
       '**/goboard-components.js',
       '**/goboard-controllers.js',
       '**/goboard-directives.js',
