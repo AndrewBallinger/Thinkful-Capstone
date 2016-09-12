@@ -10,7 +10,9 @@
       <h1> Play you some go </h1></header>
     <div class="content" ng-controller="gameController as game">
       <board size="9" square
-             ng-class="game.turn()">Loading...</board></div>
+             ng-class="game.turn()">Loading...</board>
+      <button class="new-game">New Game</button>
+    </div>
     
     <!-- build:js ./combined.js -->
     <script src="./bower_components/angular/angular.js"></script>
@@ -23,6 +25,7 @@
     <script src="./bower_components/immutable/dist/immutable.js"></script>
     <script src="./bower_components/underscore/underscore.js"></script>
     <script src="./factories/goboard-factories.js"></script>
+    <script src="./factories/firebase-sync.js"></script>
     <script src="./factories/goboard-state.js"></script>
     <script src="./factories/goboard-logic.js"></script>
     <script src="./factories/goboard-constants.js"></script>
