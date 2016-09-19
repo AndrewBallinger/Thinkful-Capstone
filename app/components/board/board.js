@@ -1,6 +1,6 @@
 /* global angular _ */
 angular.module('goboardComponents')
-  .component('board', {
+  .component('goBoard', {
     templateUrl: 'components/board/board.html',
     controller: function BoardController(goboardState) {
       var board = this;

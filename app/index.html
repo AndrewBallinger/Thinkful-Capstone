@@ -15,10 +15,12 @@
       <div ng-if="game.turn() === 'blacks-turn'" class="move-banner black">
         Black To Move
       </div>
+
+      <go-controls></go-controls>
         
-      <board size="9" square
-             ng-class="game.turn()">Loading...</board>
-      <button class="new-game">New Game</button>
+      <go-board size="9" square
+                ng-class="game.turn()">Loading...</go-board>
+
     </div>
     
     <!-- build:js ./combined.js -->
@@ -42,6 +44,7 @@
     <script src="./components/goboard-components.js"></script>
     <script src="./components/board/board.js"></script>
     <script src="./components/space/space.js"></script>
+    <script src="./components/controls/controls.js"></script>
     <script src="./directives/goboard-directives.js"></script>
     <script src="./directives/square.js"></script>
 

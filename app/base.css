@@ -32,11 +32,37 @@ header h1 {
     height: 85%;
 }
 
-board {
+go-board {
     position: relative;
-    width: 100%;
     display: block;
     border: 1px solid black;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+go-controls {
+    margin: auto;
+    width: 200px;
+    font-align: center;
+}
+
+go-controls button {
+    background-color: gray;
+    border: 1px solid black;
+    box-shadow: 2px 2px;
+    font-size: x-large;
+    padding: 0px;
+    height: 30px;
+}
+
+go-controls button:hover {
+    opacity: 0.9;
+}
+
+go-controls button:active {
+    background-color: white;
+    box-shadow: 0px 0px;
+    height: 32px;
 }
 
 space {
@@ -148,7 +174,9 @@ svg {
 }
 
 .move-banner {
+    display: inline-block;
     width: 200px;
+    height: 30px;
     margin-top: 0px;
     margin-bottom: 50px;
     border: 1px solid black;

@@ -45,6 +45,10 @@
 
     state.nextMove = () => moves.length % 2 === 0 ? CONSTANTS.PIECE.BLACK : CONSTANTS.PIECE.WHITE;
 
+    state.undo = () => {
+      moves.$remove(moves[moves.length - 1]);
+    };
+
     return state;
   });
 })();
