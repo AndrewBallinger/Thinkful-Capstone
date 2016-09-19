@@ -25,38 +25,30 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="matrix(-1,0,0,-1,1000.3504,1000.4508)"
      id="g4174">
     <g
-       id="layer2"
-       transform="matrix(0.88269174,0,0,0.91122001,54.925843,50.120116)">
+       id="layer2">
       <rect
-         ry="3.6277835"
-         y="-55.003311"
-         x="-62.225395"
-         height="1097.4298"
-         width="1132.785"
+         y="0"
+         x="0"
+         height="1000"
+         width="1000"
          id="rect4582"
          style="fill:#d4aa00" />
     </g>
-    <g
-       id="layer1" />
     <rect
-       y="-1.5491714"
-       x="469.53491"
-       height="532.14081"
-       width="60.930099"
+       y="500"
+       x="475"
+       height="500"
+       width="50"
        id="rect3765"
-       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.73006934px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <rect
-       transform="matrix(0,1,-1,0,0,0)"
-       y="-529.64752"
-       x="469.70627"
-       height="531.19714"
-       width="60.93074"
+       y="475"
+       x="475"
+       height="50"
+       width="525"
        id="rect3765-3"
-       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.72942555px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <g
-       id="layer3" />
+       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   </g>
 </svg>

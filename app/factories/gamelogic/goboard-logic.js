@@ -76,7 +76,6 @@ angular.module('goboardFactories')
 
     goboardLogic.applyMove = (position, move) => {
       var key = goboardLogic.moveKey(move);
-      console.log('Applying move for ' + key);
 
       if (position.get(key) === CONSTANTS.PIECE.EMPTY) {
         position = position.set(key, move.piece);

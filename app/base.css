@@ -41,7 +41,6 @@ board {
 
 space {
     position: relative;
-
     float: left;
     overflow: hidden;
     align-content: center;
@@ -66,6 +65,10 @@ space {
     display:inline-block;
     background-image: url("./assets/grid.svg");
     background-size: contain;
+}
+
+svg {
+    display: inline-block;
 }
 
 .left .space {
@@ -125,6 +128,7 @@ space {
 
 .move-banner {
     width: 200px;
+    margin-top: 0px;
     margin-bottom: 50px;
     border: 1px solid black;
     font-size: x-large;
