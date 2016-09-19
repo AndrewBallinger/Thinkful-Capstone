@@ -123,3 +123,16 @@ space {
     background-color: white;
 }
 
+.move-banner {
+    width: 200px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    font-size: x-large;
+    text-align: center;
+}
+
+.move-banner.black {
+    background-color: black;
+    color: white;
+}
+

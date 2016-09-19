@@ -9,6 +9,13 @@
     <header>
       <h1> Play you some go </h1></header>
     <div class="content" ng-controller="gameController as game">
+      <div ng-if="game.turn() === 'whites-turn'" class="move-banner white">
+        White To Move
+      </div>
+      <div ng-if="game.turn() === 'blacks-turn'" class="move-banner black">
+        Black To Move
+      </div>
+        
       <board size="9" square
              ng-class="game.turn()">Loading...</board>
       <button class="new-game">New Game</button>
