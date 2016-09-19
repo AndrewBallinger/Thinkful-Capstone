@@ -57,6 +57,34 @@ space {
     opacity: 0.2;
 }
 
+.piece.black {
+    background-color: black;
+}
+
+.piece.white {
+    background-color: white;
+}
+
+.whites-turn .piece.black:hover {
+    background-color: black;
+    opacity: 1;
+}
+
+.blacks-turn .piece.white:hover {
+    background-color: white;
+    opacity: 1;
+}
+
+.blacks-turn .piece.black:hover {
+    background-color: black;
+    opacity: 1;
+}
+
+.whites-turn .piece.white:hover {
+    background-color: white;
+    opacity: 1;
+}
+
 .space {
     width: 100%;
     height: 100%;
@@ -117,14 +145,6 @@ svg {
     display:inline-block;
     overflow: hidden;
     border-radius: 50%;
-}
-
-.piece.black {
-    background-color: black;
-}
-
-.piece.white {
-    background-color: white;
 }
 
 .move-banner {
