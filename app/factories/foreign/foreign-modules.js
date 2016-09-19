@@ -1,5 +1,5 @@
 /* globals angular */
-(function () {
+(function() {
   angular.module('foreignModules', ['firebase']);
 })();
 

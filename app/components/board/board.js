@@ -1,75 +1,77 @@
-/*global angular _*/
+/* global angular _ */
 angular.module('goboardComponents')
-  .component('board', { 
+  .component('board', {
     templateUrl: 'components/board/board.html',
     controller: function BoardController(goboardState) {
       var board = this;
-      board.TOPO = { BOTTOM: 'bottom', RIGHT: 'right', LEFT: 'left', TOP: 'top', STAR: 'star'  };
-      
+      board.TOPO = { BOTTOM: 'bottom', RIGHT: 'right', LEFT: 'left', TOP: 'top', STAR: 'star' };
+
       board.$onInit = () => {
         if (board.size === undefined) board.size = 19;
 
         board.spaces = _.flatten(
-          _.map( _.range(1, board.size + 1),
-            (r) => _.map( _.range(1, board.size + 1),
-              (c) =>  { return {
-                row: r,
-                column: c }})));
+          _.map(_.range(1, board.size + 1),
+            (r) => _.map(_.range(1, board.size + 1),
+                         (c) => {
+                           return {
+                             row: r,
+                             column: c };
+                         })));
 
         goboardState.clearBoard(board.spaces);
-
-        console.log("Size " + board.size + " board initialized") };
+      };
 
       board.getTopology = (space) => {
         var topo = [];
         if (space.column === 1) topo.push(board.TOPO.LEFT);
         if (space.column === board.size) topo.push(board.TOPO.RIGHT);
-        if (space.row === 1) topo.push(board.TOPO.TOP); 
+        if (space.row === 1) topo.push(board.TOPO.TOP);
         if (space.row === board.size) topo.push(board.TOPO.BOTTOM);
         if (board.isStarPoint(space)) topo.push(board.TOPO.STAR);
         return topo;
-      }
+      };
 
       board.isStarPoint = (space) => {
-        var row_index = space.row; //Using 1 indexed not 0 indexed to keep the notation natural
-        var col_index = space.column;
+        var rowIndex = space.row; // Using 1 indexed not 0 indexed to keep the notation natural
+        var colIndex = space.column;
 
-        var edge_stars = [];
-        if (board.size % 2 == 1 && board.size > 13) edge_stars.push(Math.ceil(board.size / 2)); //Odd boards have center points on the edges
-        if (board.size % 2 == 0 && board.size > 13) { //Do something interesting with even boards... Not traditional
-          edge_stars.push(Math.ceil(board.size / 2.5)); 
-          edge_stars.push(board.size - Math.ceil(board.size / 2.5) + 1); 
+        var edgeStars = [];
+        if (board.size % 2 === 1 && board.size > 13) edgeStars.push(Math.ceil(board.size / 2)); // Odd boards have center points on the edges
+        if (board.size % 2 === 0 && board.size > 13) { // Do something interesting with even boards... Not traditional
+          edgeStars.push(Math.ceil(board.size / 2.5));
+          edgeStars.push(board.size - Math.ceil(board.size / 2.5) + 1);
         }
 
-        var life_and_death_near = (board.size > 12) ? 4 : 3
-        var life_and_death_far  = (board.size - life_and_death_near + 1) //Off by one, go is played on fenceposts.
+        var lifeAndDeathNear = (board.size > 12) ? 4 : 3;
+        // Off by one, go is played on fenceposts.
+        var lifeAndDeathFar = (board.size - lifeAndDeathNear + 1);
 
-        if (row_index == life_and_death_near || row_index == life_and_death_far) { //Left and right lines of life and death
-          if (col_index == life_and_death_near)     return true;
-          if (col_index == life_and_death_far)      return true;
-          if (edge_stars.findIndex((i) => i === col_index) > -1) return true;
+        if (rowIndex === lifeAndDeathNear || rowIndex === lifeAndDeathFar) { // Left and right lines of life and death
+          if (colIndex === lifeAndDeathNear) return true;
+          if (colIndex === lifeAndDeathFar) return true;
+          if (edgeStars.findIndex((i) => i === colIndex) > -1) return true;
         }
 
-        if (col_index == life_and_death_near || col_index == life_and_death_far) { //Top and bottom lines of life and death
-          if (edge_stars.findIndex((i) => i === row_index) > -1) return true;
+        if (colIndex === lifeAndDeathNear || colIndex === lifeAndDeathFar) { // Top and bottom lines of life and death
+          if (edgeStars.findIndex((i) => i === rowIndex) > -1) return true;
         }
 
-        if (board.size % 2 == 1) { //odd board size, center point
-          if (row_index == Math.ceil( board.size / 2 ) && col_index == Math.ceil(board.size / 2)) return true;
+        if (board.size % 2 === 1) { // odd board size, center point
+          if (rowIndex === Math.ceil(board.size / 2) && colIndex === Math.ceil(board.size / 2)) return true;
         } else if (board.size > 13) {
-          if (edge_stars.findIndex((i) => i === row_index) > -1 &&
-              edge_stars.findIndex((i) => i === col_index) > -1 ) return true; //Just throw some stars around to match the edges.
+          if (edgeStars.findIndex((i) => i === rowIndex) > -1 &&
+              edgeStars.findIndex((i) => i === colIndex) > -1) return true;
+             // Just throw some stars around to match the edges.
         }
 
         return false;
-      }
+      };
 
-      
       return board;
     },
-    controllerAs: "board",
+    controllerAs: 'board',
     bindings: {
-      size: "<",
-      spaces: "@"
+      size: '<',
+      spaces: '@'
     }
   });

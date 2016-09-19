@@ -1,7 +1,7 @@
 /* global angular firebase */
-(function () {
+(function() {
   angular.module('foreignModules')
-         .factory('firebaseSync', function ($firebaseAuth, $firebaseArray, $q) {
+         .factory('firebaseSync', function($firebaseAuth, $firebaseArray, $q) {
            var sync = {};
            var queuedRegistrants = [];
 
@@ -16,7 +16,7 @@
              }
            };
 
-           firebase.auth().onAuthStateChanged(function (user) {
+           firebase.auth().onAuthStateChanged(function(user) {
              ref = firebase.database().ref();
              for (var registrant of queuedRegistrants) {
                registrant.resolve(ref);

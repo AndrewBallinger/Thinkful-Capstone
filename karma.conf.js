@@ -21,13 +21,11 @@ module.exports = function(config) {
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-route/angular-route.js',
-      'bower_components/firebase/firebase.js',
-      'bower_components/angularfire/dist/angularfire.js',
       'bower_components/immutable/dist/immutable.js',
       'bower_components/underscore/underscore.js',
+      '**/test_fixtures/*.js',
       '*.js',
       '*.html',
-      '**/test_fixtures/*.js',
       '**/goboard-components.js',
       '**/goboard-controllers.js',
       '**/goboard-directives.js',
@@ -38,6 +36,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
+      'factories/foreign/*.js'
     ],
 
     // preprocess matching files before serving them to the browser

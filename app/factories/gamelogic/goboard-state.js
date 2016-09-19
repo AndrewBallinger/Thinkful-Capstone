@@ -1,7 +1,7 @@
 /* global angular _ Immutable */
-(function () {
+(function() {
   angular.module('goboardFactories')
-  .factory('goboardState', function ($rootScope, CONSTANTS, goboardLogic, firebaseSync) {
+  .factory('goboardState', function($rootScope, CONSTANTS, goboardLogic, firebaseSync) {
     var lastPosition;
     var blankPosition;
 

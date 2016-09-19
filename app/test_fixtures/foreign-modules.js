@@ -1,12 +1,15 @@
 /* globals angular */
-(function () {
+(function() {
   angular.module('foreignModules', []);
   angular.module('foreignModules')
-         .factory('firebaseSync', function ($q) {
+         .factory('firebaseSync', function($q, $rootScope) {
            var deferred = $q.defer();
-           deferred.resolve([]);
+           var mockResult = [];
+           mockResult.$watch = (args) => $rootScope.$watch(mockResult, args);
+
+           deferred.resolve(mockResult);
            return {
-             registerForMoves: deferred.promise
+             registerForMoves: () => deferred.promise
            };
          });
 })();

@@ -1,6 +1,6 @@
-/*global angular */
+/* global angular */
 angular.module('goboardComponents')
-  .component('space', { 
+  .component('space', {
     templateUrl: 'components/space/space.html',
     require: '^^board',
     scope: true,
@@ -9,24 +9,24 @@ angular.module('goboardComponents')
       space.piece = () => {
         switch (goboardState.lookupPiece(this)) {
           case CONSTANTS.PIECE.BLACK:
-            return "black";
+            return 'black';
           case CONSTANTS.PIECE.WHITE:
-            return "white";
+            return 'white';
           default:
-            return "";
+            return '';
         }
-      }
+      };
 
       space.handleClick = () => {
         goboardState.placePiece(this);
-      }
+      };
 
       return space;
     },
-    controllerAs: "space",
+    controllerAs: 'space',
     bindings: {
-      row: "@",
-      column: "@",
-      piece: "@"
+      row: '@',
+      column: '@',
+      piece: '@'
     }
   });
