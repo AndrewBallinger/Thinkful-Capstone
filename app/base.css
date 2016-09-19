@@ -65,6 +65,7 @@ space {
     display:inline-block;
     background-image: url("./assets/grid.svg");
     background-size: contain;
+    background-color: #d4aa00;
 }
 
 svg {
