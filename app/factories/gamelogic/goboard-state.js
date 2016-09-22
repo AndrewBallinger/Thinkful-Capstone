@@ -51,6 +51,7 @@
     state.nextMove = () => moves.length % 2 === 0 ? CONSTANTS.PIECE.BLACK : CONSTANTS.PIECE.WHITE;
 
     state.undo = () => {
+      if (history.size() <= 1) return;
       moves.$remove(moves[moves.length - 1]);
       history.pop();
     };
