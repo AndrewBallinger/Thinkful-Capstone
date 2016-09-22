@@ -1,4 +1,4 @@
-/* global angular _ */
+/* global angular _ Immutable */
 angular.module('goboardFactories')
   .factory('goboardLogic', function(CONSTANTS) {
     var goboardLogic = {};
@@ -41,8 +41,6 @@ angular.module('goboardFactories')
       var deaths = goboardLogic.findKills(position, move);
 
       if (_.keys(deaths).length === 0) return position;
-
-      console.log('Found deaths: ' + _.keys(deaths));
 
       var removedWhitePieces = _.keys(_.filter(deaths, (d) => d.piece === CONSTANTS.PIECE.WHITE)).length;
       var removedBlackPieces = _.keys(_.filter(deaths, (d) => d.piece === CONSTANTS.PIECE.BLACK)).length;
@@ -87,11 +85,11 @@ angular.module('goboardFactories')
       return position;
     };
 
-    goboardLogic.moveIsValid = (position, move) => {
-      if (position === undefined) return false;
-      if (goboardLogic.lookupPiece(position, move) !== CONSTANTS.PIECE.EMPTY) return false; // No playing over an opponents pieces
+    goboardLogic.moveIsValid = (history, move) => {
+      if (history.last() === undefined) return false;
+      if (goboardLogic.lookupPiece(history.last(), move) !== CONSTANTS.PIECE.EMPTY) return false; // No playing over an opponents pieces
 
-      var potentialPosition = position.set(goboardLogic.moveKey(move), move.piece);
+      var potentialPosition = history.last().set(goboardLogic.moveKey(move), move.piece);
 
       var kills = _.keys(goboardLogic.findKills(potentialPosition, move));
       var potentialSuicides = _.keys(goboardLogic.findDeaths({}, potentialPosition, move)).length;
@@ -101,6 +99,13 @@ angular.module('goboardFactories')
           // No suicides without capture
           return false;
         }
+      }
+
+      var finalPosition = goboardLogic.applyMove(history.last(), move);
+
+      // Ko rule
+      for (var oldPosition of history.toArray()) {
+        if (Immutable.is(finalPosition.set(CONSTANTS.SCORE, 0), oldPosition.set(CONSTANTS.SCORE, 0))) return false;
       }
 
       return true;
