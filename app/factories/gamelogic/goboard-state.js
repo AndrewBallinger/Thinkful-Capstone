@@ -47,8 +47,16 @@
     };
 
     state.blackToMove = () => state.nextMove() === CONSTANTS.PIECE.BLACK;
-
     state.nextMove = () => moves.length % 2 === 0 ? CONSTANTS.PIECE.BLACK : CONSTANTS.PIECE.WHITE;
+
+    state.score = () => {
+      var last = history.last();
+      if (last) {
+        return last.get(CONSTANTS.SCORE, { white: 0, black: 0 });
+      } else {
+        return { white: 0, black: 0 };
+      }
+    };
 
     state.undo = () => {
       if (history.size() <= 1) return;

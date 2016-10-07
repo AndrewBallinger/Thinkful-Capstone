@@ -8,6 +8,7 @@
   <body>
     <header>
       <h1> Play you some go </h1></header>
+      <go-score></go-score>
     <div class="content" ng-controller="gameController as game">
       <div ng-if="game.turn() === 'whites-turn'" class="move-banner white">
         White To Move
@@ -17,7 +18,7 @@
       </div>
 
       <go-controls></go-controls>
-        
+      
       <go-board size="9" square
                 ng-class="game.turn()">Loading...</go-board>
 
@@ -43,6 +44,7 @@
     <script src="./controllers/game.js"></script>
     <script src="./components/goboard-components.js"></script>
     <script src="./components/board/board.js"></script>
+    <script src="./components/score/score.js"></script>
     <script src="./components/space/space.js"></script>
     <script src="./components/controls/controls.js"></script>
     <script src="./directives/goboard-directives.js"></script>

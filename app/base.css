@@ -64,6 +64,22 @@ go-controls button:active {
     box-shadow: 0px 0px;
     height: 32px;
 }
+go-score section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    width: 260px;
+    padding: 2px;
+}
+
+go-score h2 {
+    width: 200px;
+    display: inline;
+}
+
+go-score span {
+    margin-left: 10px;
+}
 
 space {
     position: relative;
